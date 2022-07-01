@@ -1,10 +1,14 @@
-import Image from 'next/image';
-import { Header } from '../components';
+import { Button } from '../components';
 
 export default function Home(): JSX.Element {
   return (
     <>
-      <Header tag='h2'>Test</Header>
+      <Button variant='primary' onClick={() => alert('Saved!')} arrow='right'>
+        Сохранить
+      </Button>
+      <Button variant='ghost' onClick={() => alert('Saved!')} arrow='down'>
+        Сохранить
+      </Button>
     </>
   );
 }
