@@ -1,7 +1,7 @@
-import { HeaderProps } from './Header.props';
-import styles from './Header.module.css';
+import { HtagProps } from './Htag.props';
+import styles from './Htag.module.css';
 
-function Header({ tag, children }: HeaderProps): JSX.Element {
+function Htag({ tag, children }: HtagProps): JSX.Element {
   switch (tag) {
     case 'h1':
       return <h1 className={styles.h1}>{children}</h1>;
@@ -14,4 +14,4 @@ function Header({ tag, children }: HeaderProps): JSX.Element {
   }
 }
 
-export default Header;
+export default Htag;

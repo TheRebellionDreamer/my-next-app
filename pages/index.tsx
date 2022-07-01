@@ -1,14 +1,20 @@
-import { Button } from '../components';
+import { useState } from 'react';
+import { Paragraph, Rating } from '../components';
+import { withLayout } from '../layout';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
+  const [rating, setRating] = useState<number>(1);
   return (
     <>
-      <Button variant='primary' onClick={() => alert('Saved!')} arrow='right'>
-        Сохранить
-      </Button>
-      <Button variant='ghost' onClick={() => alert('Saved!')} arrow='down'>
-        Сохранить
-      </Button>
+      <Paragraph>
+        Elit aute eu enim culpa ad consectetur consectetur qui. Reprehenderit consequat occaecat
+        cillum excepteur eu excepteur. Dolore Lorem magna aute ad non et culpa culpa in enim
+        excepteur. Deserunt culpa laborum culpa eu. Do in dolore aute dolore pariatur cupidatat
+        nostrud.
+      </Paragraph>
+      <Rating rating={rating} isEditable onChangeRating={setRating} />
     </>
   );
 }
+
+export default withLayout(Home);
