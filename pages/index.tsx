@@ -5,7 +5,7 @@ import { Paragraph, Rating } from '../components';
 import { MenuItem } from '../interfaces/menu.interface';
 import { withLayout } from '../layout';
 
-function Home({ menu, firstCategory }: HomeProps): JSX.Element {
+function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(1);
   return (
     <>
