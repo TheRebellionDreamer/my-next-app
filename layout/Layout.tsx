@@ -1,9 +1,10 @@
+import { FC } from 'react';
+import { AppContextProvider, IAppContext } from '../context/app.context';
 import { Footer } from './Footer';
 import { Header } from './Header';
-import { Sidebar } from './Sidebar';
-import LayoutProps from './Layout.props';
 import styles from './Layout.module.css';
-import { FC } from 'react';
+import LayoutProps from './Layout.props';
+import { Sidebar } from './Sidebar';
 
 function Layout({ children }: LayoutProps): JSX.Element {
   return (
@@ -16,12 +17,14 @@ function Layout({ children }: LayoutProps): JSX.Element {
   );
 }
 
-function withLayout<T extends Record<string, unknown>>(Component: FC<T>) {
+function withLayout<T extends Record<string, unknown> & IAppContext>(Component: FC<T>) {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AppContextProvider>
     );
   };
 }
